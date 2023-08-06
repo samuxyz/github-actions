@@ -1,8 +1,7 @@
 name: delete-branch
 on:
   pull_request:
-    branches:
-      - 'master'
+    branches: [ master ]
     types: [ closed ]
 jobs:
   delete-old-branch:
@@ -18,7 +17,7 @@ jobs:
 
             console.log(`Deleting branch: "${ref}"`);
             try {
-              console.log("I will delete!")
+              github.rest.git.deleteRef(deleteParams);
             } catch(e) {
               console.log("Cannot delete branch; error:", e);
             }

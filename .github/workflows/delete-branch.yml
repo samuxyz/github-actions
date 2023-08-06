@@ -2,7 +2,7 @@ name: delete-branch
 on:
   pull_request:
     branches:
-      - 'feature/*'
+      - 'master'
 jobs:
   delete-old-branch:
     if: ${{ github.event.pull_request.merged_at != '' }}

@@ -1,7 +1,10 @@
-name: delete-branch
+name: delete-branch-after-merge-develop
 on:
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - 'feature/**'
+      - 'hotfix/**'
     types: [ closed ]
 jobs:
   delete-old-branch:
